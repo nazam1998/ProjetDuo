@@ -33,12 +33,12 @@ return  view('welcome');
 })->name('home');
 
 
-Route::get("hglm","CategorieController@index")->name("categorie");
-Route::get("fd", "CategorieController@create")->name("addCategorie");
-Route::post("fds", "CategorieController@store")->name("saveCategorie");
-Route::get("/{id}", "CategorieController@edit")->name("editCategorie");
-Route::post("/{id}", "CategorieController@update")->name("updateCategorie");
-Route::get("/{id}", "CategorieController@destroy")->name("deleteCategorie");
+Route::get("/admin/categorie/","CategorieController@index")->name("categorie");
+Route::get("/admin/addCategorie", "CategorieController@create")->name("addCategorie");
+Route::post("/admin/saveCategorie", "CategorieController@store")->name("saveCategorie");
+Route::get("/admin/editCategorie/{id}", "CategorieController@edit")->name("editCategorie");
+Route::post("/admin/editCategorie/{id}", "CategorieController@update")->name("updateCategorie");
+Route::get("/admin/delete/Categorie/{id}", "CategorieController@destroy")->name("deleteCategorie");
 
 Route::get('/admin/avatar','AvatarController@index')->name('avatar');
 Route::get('/admin/addAvatar','AvatarController@create')->name('addAvatar');
