@@ -3,6 +3,8 @@
 @section('title','Avatar')
 
 @section('content')
+<div class="container text-center">
+
     <table>
         <thead>
             <tr>
@@ -17,15 +19,16 @@
         </thead>
         <tbody>
             @foreach ($avatars as $item)
-                
+            
             <tr>
-            <td>{{$item->id}}</td>
-            <td>{{$item->nom}}</td>
-            <td>{{$item->image}}</td>
-            <td><a href="{{route('editAvatar',item->id)}}"><button class="btn btn-warning">Edit</button></a></td>
-            <td><a href="{{route('deleteAvatar',item->id)}}"><button class="btn btn-danger">Delete</button></a></td>
+                <td>{{$item->id}}</td>
+                <td>{{$item->nom}}</td>
+                <td>{{$item->image}}</td>
+                <td><a href="{{route('editAvatar',$item->id)}}"><button class="btn btn-warning">Edit</button></a></td>
+                <td><a href="{{route('deleteAvatar',$item->id)}}"><button class="btn btn-danger">Delete</button></a></td>
             </tr>
             @endforeach
         </tbody>
     </table>
-@endsection
+</div>
+    @endsection

@@ -29,18 +29,16 @@ use Illuminate\Support\Facades\Route;
   
 
 Route::get('/', function () {
-
 return  view('welcome');
 })->name('home');
 
 
-Route::get("","CategorieController@index")->name("categorie");
-Route::get("", "CategorieController@create")->name("addCategorie");
-Route::post("", "CategorieController@store")->name("saveCategorie");
+Route::get("hglm","CategorieController@index")->name("categorie");
+Route::get("fd", "CategorieController@create")->name("addCategorie");
+Route::post("fds", "CategorieController@store")->name("saveCategorie");
 Route::get("/{id}", "CategorieController@edit")->name("editCategorie");
 Route::post("/{id}", "CategorieController@update")->name("updateCategorie");
 Route::get("/{id}", "CategorieController@destroy")->name("deleteCategorie");
-    return view('welcome');
 
 Route::get('/admin/avatar','AvatarController@index')->name('avatar');
 Route::get('/admin/addAvatar','AvatarController@create')->name('addAvatar');
