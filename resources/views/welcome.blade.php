@@ -16,7 +16,7 @@
         <a class="nav-link" href="{{route('avatar')}}">Avatar</a>
         </li>
         <li class="nav-item">
-        <a class="nav-link" href="{{route('home')}}">Categorie</a>
+        <a class="nav-link" href="{{route('categorie')}}">Categorie</a>
         </li>
         
     </div>

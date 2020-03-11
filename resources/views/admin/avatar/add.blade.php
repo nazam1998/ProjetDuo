@@ -4,12 +4,20 @@
 
 
 @section('content')
-<form>
+<div class="container mt-5">
+<h1>Ajout nouveau Avatar</h1>
+  <form action="{{route('saveAvatar')}}" method="POST" enctype="multipart/form-data">
+    @csrf
     <div class="form-group">
-      <label for="exampleInputEmail1">Email address</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+      <label for="inputAvatar">Nom</label>
+      <input type="text" class="form-control" id="inputAvatar" name="nom">
+    </div>
+    <div class="form-group">
+      <label for="inputAvatar">Image</label>
+      <input type="file" class="form-control-file" id="inputAvatar" name="image">
     </div>
     
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary">Ajouter</button>
   </form>
+</div>
 @endsection

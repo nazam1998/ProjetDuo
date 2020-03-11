@@ -16,6 +16,8 @@ class AvatarController extends Controller
     }
     public function store(Request $request){
         $avatar=new Avatar();
+        $filename=Storage::disk('public')->put('',$request->file('image'));
+        $image=basename($filename);
         $avatar->nom=$request->nom;
         $avatar->image=$request->image;
         $avatar->save();
@@ -27,6 +29,9 @@ class AvatarController extends Controller
     }
     public function update(Request $request,$id){
         $avatar=Avatar::find($id);
+        if(Storage::exists(public_path($avatar->image))){
+            unlink($avatar->image);
+        }
         $filename=Storage::disk('public')->put('',$request->file('image'));
         $image=basename($filename);
         $avatar->nom=$request->nom;

@@ -30,5 +30,7 @@
             @endforeach
         </tbody>
     </table>
+<a href="{{route('addAvatar')}}" class="btn btn-primary my-5">Ajouter un nouveau Avatar</a>
 </div>
+
     @endsection
