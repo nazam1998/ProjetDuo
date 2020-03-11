@@ -31,8 +31,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
 
 return  view('welcome');
+})->name('home');
 
-});
 
 Route::get("","CategorieController@index")->name("categorie");
 Route::get("", "CategorieController@create")->name("addCategorie");
@@ -40,3 +40,11 @@ Route::post("", "CategorieController@store")->name("saveCategorie");
 Route::get("/{id}", "CategorieController@edit")->name("editCategorie");
 Route::post("/{id}", "CategorieController@update")->name("updateCategorie");
 Route::get("/{id}", "CategorieController@destroy")->name("deleteCategorie");
+    return view('welcome');
+
+Route::get('/admin/avatar','AvatarController@index')->name('avatar');
+Route::get('/admin/addAvatar','AvatarController@create')->name('addAvatar');
+Route::post('/admin/saveAvatar','AvatarController@store')->name('saveAvatar');
+Route::get('/admin/editAvatar/{id}','AvatarController@edit')->name('editAvatar');
+Route::post('/admin/updateAvatar/{id}','AvatarController@update')->name('updateAvatar');
+Route::get('/admin/deleteAvatar/{id}','AvatarController@destroy')->name('deleteAvatar');

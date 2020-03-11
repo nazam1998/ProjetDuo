@@ -3,203 +3,172 @@
   
 
 namespace  App\Http\Controllers;
-
-  
-
 use Illuminate\Http\Request;
-
 use App\Categorie;
-
-  
-
 class  CategorieController  extends  Controller
 
-{
+    {
 
-/**
+    /**
 
-* Display a listing of the resource.
+    * Display a listing of the resource.
 
-*
+    *
 
-* @return \Illuminate\Http\Response
+    * @return \Illuminate\Http\Response
 
-*/
+    */
 
-public  function  index()
+    public  function index()
 
-{
+    {
 
-//
+    //
+        $categories= Categorie::all();
+        return  view ("admin/categorie/index", compact("categories"));
+    }
 
-$categorie = Categorie::all();
+    
 
-return  view ("", compact("categorie"));
+    /**
 
-  
+    * Show the form for creating a new resource.
 
-}
+    *
 
-  
+    * @return \Illuminate\Http\Response
 
-/**
+    */
 
-* Show the form for creating a new resource.
+    public  function  create()
 
-*
+    {
 
-* @return \Illuminate\Http\Response
+        return  view("admin/categorie/add");
 
-*/
+    //
 
-public  function  create()
+    }
 
-{
+    
 
-return  view("");
+    /**
 
-//
+    * Store a newly created resource in storage.
 
-}
+    *
 
-  
+    * @param \Illuminate\Http\Request $request
 
-/**
+    * @return \Illuminate\Http\Response
 
-* Store a newly created resource in storage.
+    */
 
-*
+    public  function  store(Request  $request)
 
-* @param \Illuminate\Http\Request $request
+    {
 
-* @return \Illuminate\Http\Response
+    //
 
-*/
+        $categorie = Categorie::find($id);
+        $categorie->categorie=$request->input("categorie");
+        $categorie->save();
+        return  redirect()->route("categorie");
 
-public  function  store(Request  $request)
+    }
 
-{
+    /**
 
-//
+    * Display the specified resource.
 
-$categorie = Categorie::find($id);
+    *
 
-$categorie->categorie=$request->input("categorie");
+    * @param  int $id
 
-$categorie->save();
+    * @return \Illuminate\Http\Response
 
-return  redirect()->route("");
+    */
 
-}
+    public  function  show($id)
 
-  
+    {
 
-/**
+    //
 
-* Display the specified resource.
+    }
 
-*
+    /**
 
-* @param  int $id
+    * Show the form for editing the specified resource.
 
-* @return \Illuminate\Http\Response
+    *
 
-*/
+    * @param  int $id
 
-public  function  show($id)
+    * @return \Illuminate\Http\Response
 
-{
+    */
 
-//
+    public  function  edit($id)
 
-}
+    {
 
-  
+    //
 
-/**
+    $categorie=Categorie::find($id);
 
-* Show the form for editing the specified resource.
+        return  view('admin/categorie/edit', compact('categorie'));
+    }
 
-*
 
-* @param  int $id
+    /**
 
-* @return \Illuminate\Http\Response
+    * Update the specified resource in storage.
 
-*/
+    *
 
-public  function  edit($id)
+    * @param \Illuminate\Http\Request $request
 
-{
+    * @param  int $id
 
-//
+    * @return \Illuminate\Http\Response
 
-$categorie=Categorie::find($id);
+    */
 
-return  view('', compact('categorie'));
+    public  function  update(Request  $request, $id)
 
-}
+    {
 
-  
+    //
 
-/**
+        $categorie = Categorie::find($id);
+        $categorie->categorie=$request->input("categorie");
+        $categorie->save();
+        return  redirect()->route("categorie");
 
-* Update the specified resource in storage.
+    }
 
-*
 
-* @param \Illuminate\Http\Request $request
+    /**
 
-* @param  int $id
+    * Remove the specified resource from storage.
 
-* @return \Illuminate\Http\Response
+    *
 
-*/
+    * @param  int $id
 
-public  function  update(Request  $request, $id)
+    * @return \Illuminate\Http\Response
 
-{
+    */
 
-//
+    public  function  destroy($id)
 
-$categorie = Categorie::find($id);
+    {
 
-$categorie->categorie=$request->input("categorie");
+        $categorie=Categorie::find($id);
+        $categorie->delete();
+        return  redirect()-> route("categorie");
+    //
+    }
 
-$categorie->save();
-
-return  redirect()->route("");
-
-}
-
-  
-
-/**
-
-* Remove the specified resource from storage.
-
-*
-
-* @param  int $id
-
-* @return \Illuminate\Http\Response
-
-*/
-
-public  function  destroy($id)
-
-{
-
-  
-
-$categorie=Categorie::find($id);
-
-$categorie->delete();
-
-return  redirect()-> route("");
-
-//
-
-}
-
-}
+    }
