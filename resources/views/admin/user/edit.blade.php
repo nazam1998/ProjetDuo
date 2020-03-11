@@ -6,7 +6,7 @@
 @section('content')
 <div class="container mt-5">
     <h1>Ajout nouveau User</h1>
-    <form action="{{route('saveUser')}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('updateUser',$user->id)}}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
             <label for="inputUser">Nom</label>
