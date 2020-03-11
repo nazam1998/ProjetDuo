@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->integer('age');
             $table->string('email');
-            $table->bigInteger('id_avatar');
+            $table->bigInteger('id_avatar')->unsigned();
             $table->foreign('id_avatar')->on('avatars')->references('id')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });

@@ -17,7 +17,7 @@ class CreateImagesTable extends Migration
             $table->id();
             $table->string('nom');
             $table->string('image');
-            $table->bigInteger('id_categorie');
+            $table->bigInteger('id_categorie')->unsigned();
             $table->foreign('id_categorie')->on('categories')->references('id')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
