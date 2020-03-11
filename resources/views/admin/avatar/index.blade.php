@@ -1,5 +1,11 @@
 @extends('layout.main')
-@section('title','Accueil')
+
+@section('title','Avatar')
+
 @section('content')
     
+
+
+
+
 @endsection
