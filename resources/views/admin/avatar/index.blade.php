@@ -23,14 +23,18 @@
             <tr>
                 <td>{{$item->id}}</td>
                 <td>{{$item->nom}}</td>
-                <td>{{$item->image}}</td>
+                <td><img src="{{asset('storage/'.$item->image)}}" class="img-fluid" alt=""></td>
                 <td><a href="{{route('editAvatar',$item->id)}}"><button class="btn btn-warning">Edit</button></a></td>
                 <td><a href="{{route('deleteAvatar',$item->id)}}"><button class="btn btn-danger">Delete</button></a></td>
             </tr>
             @endforeach
         </tbody>
     </table>
-<a href="{{route('addAvatar')}}" class="btn btn-primary my-5">Ajouter un nouveau Avatar</a>
+   @if (count($avatars)<5)
+   <a href="{{route('addAvatar')}}" class="btn btn-primary my-5">Ajouter un nouveau Avatar</a>
+   @else 
+   <span class="text-danger">Désolé! Vous avez atteint la limite d'avatar ajoutable</span>
+   @endif
 </div>
 
     @endsection

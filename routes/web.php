@@ -46,3 +46,10 @@ Route::post('/admin/saveAvatar','AvatarController@store')->name('saveAvatar');
 Route::get('/admin/editAvatar/{id}','AvatarController@edit')->name('editAvatar');
 Route::post('/admin/updateAvatar/{id}','AvatarController@update')->name('updateAvatar');
 Route::get('/admin/deleteAvatar/{id}','AvatarController@destroy')->name('deleteAvatar');
+
+Route::get('/admin/user','UserController@index')->name('user');
+Route::get('/admin/addUser','UserController@create')->name('addUser');
+Route::post('/admin/saveUser','UserController@store')->name('saveUser');
+Route::get('/admin/editUser/{id}','UserController@edit')->name('editUser');
+Route::post('/admin/updateUser/{id}','UserController@update')->name('updateUser');
+Route::get('/admin/deleteUser/{id}','UserController@destroy')->name('deleteUser');

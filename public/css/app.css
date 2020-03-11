@@ -10896,6 +10896,16 @@ table {
   width: 100%;
 }
 
+table img {
+  width: 100px;
+  height: 100px;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+}
+
 thead,
 tfoot {
   background-color: #333;
