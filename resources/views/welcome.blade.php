@@ -10,15 +10,18 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{{route('home')}}">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Avatar</a>
+        <a class="nav-link" href="{{route('avatar')}}">Avatar</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Categorie</a>
+        <a class="nav-link" href="{{route('home')}}">Categorie</a>
         </li>
         
     </div>
   </nav>
+<div class="container text-center">
+    <h1>Welcome</h1>
+</div>
 @endsection
