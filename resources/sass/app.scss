@@ -1,1 +1,25 @@
 @import "~bootstrap";
+
+table,
+td {
+    border: 1px solid #333;
+}
+th,td{
+    padding: 20px;
+}
+table{
+    width: 100%;
+    img{
+        width: 100px;
+        height: 100px;
+    }
+}
+.avatar{
+    width: 100px;
+    height: 100px;
+}
+thead,
+tfoot {
+    background-color: #333;
+    color: #fff;
+}
