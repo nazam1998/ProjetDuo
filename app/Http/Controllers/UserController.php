@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\User;
 use App\Avatar;
+use App\Role;
+use App\Entreprise;
 use Illuminate\Validation\Rule;
 
 class UserController extends Controller
@@ -17,7 +19,9 @@ class UserController extends Controller
     }
     public function create(){
         $avatars=Avatar::all();
-        return view('admin.user.add',compact('avatars'));
+        $roles=Role::all();
+        $entreprises=Entreprise::all();
+        return view('admin.user.add',compact('avatars', "roles", "entreprises"));
     }
     public function store(Request $request){
         $request->validate([
