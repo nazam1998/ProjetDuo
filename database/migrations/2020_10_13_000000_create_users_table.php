@@ -20,6 +20,10 @@ class CreateUsersTable extends Migration
             $table->string('email');
             $table->bigInteger('id_avatar')->unsigned();
             $table->foreign('id_avatar')->on('avatars')->references('id')->onDelete('cascade')->onUpdate('cascade');
+            $table->bigInteger('id_role')->unsigned();
+            $table->foreign('id_role')->on('roles')->references('id')->onDelete('cascade')->onUpdate('cascade');
+            $table->bigInteger('id_entreprise')->unsigned();
+            $table->foreign('id_entreprise')->on('entreprises')->references('id')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
