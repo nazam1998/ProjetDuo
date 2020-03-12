@@ -67,3 +67,10 @@ Route::post("/admin/saverole", "RoleController@store")->name("saveRole");
 Route::get("/admin/editrole/{id}", "RoleController@edit")->name("editRole");
 Route::post("/admin/editrole/{id}", "RoleController@update")->name("updateRole");
 Route::get("/admin/delete/role/{id}", "RoleController@destroy")->name("deleteRole");
+
+Route::get('/admin/entreprise','EntrepriseController@index')->name('entreprise');
+Route::get('/admin/addEntreprise','EntrepriseController@create')->name('addEntreprise');
+Route::post('/admin/saveEntreprise','EntrepriseController@store')->name('saveEntreprise');
+Route::get('/admin/editEntreprise/{id}','EntrepriseController@edit')->name('editEntreprise');
+Route::post('/admin/updateEntreprise/{id}','EntrepriseController@update')->name('updateEntreprise');
+Route::get('/admin/deleteEntreprise/{id}','EntrepriseController@destroy')->name('deleteEntreprise');

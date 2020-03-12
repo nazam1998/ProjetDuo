@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Storage;
 
 use App\Entreprise;
 use Illuminate\Http\Request;
-
 class EntrepriseController extends Controller
 {
     /**
@@ -14,7 +14,8 @@ class EntrepriseController extends Controller
      */
     public function index()
     {
-        //
+        $entreprises=Entreprise::all();
+        return view('admin.entreprise.index',\compact('entreprises'));
     }
 
     /**
@@ -24,7 +25,7 @@ class EntrepriseController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.entreprise.add');
     }
 
     /**
@@ -35,7 +36,14 @@ class EntrepriseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $entreprise=new Entreprise();
+        $filename=Storage::disk('public')->put('',$request->file('logo'));
+        $image=basename($filename);
+        $entreprise->nom=$request->nom;
+        $entreprise->employe=$request->employe;
+        $entreprise->logo=$image;
+        $entreprise->save();
+        return redirect()->route('entreprise');   
     }
 
     /**
@@ -44,7 +52,7 @@ class EntrepriseController extends Controller
      * @param  \App\Entreprise  $entreprise
      * @return \Illuminate\Http\Response
      */
-    public function show(Entreprise $entreprise)
+    public function show($id)
     {
         //
     }
@@ -55,9 +63,10 @@ class EntrepriseController extends Controller
      * @param  \App\Entreprise  $entreprise
      * @return \Illuminate\Http\Response
      */
-    public function edit(Entreprise $entreprise)
+    public function edit($id)
     {
-        //
+        $entreprise=Entreprise::find($id);
+        return view('admin.entreprise.edit',\compact('entreprise'));
     }
 
     /**
@@ -67,9 +76,16 @@ class EntrepriseController extends Controller
      * @param  \App\Entreprise  $entreprise
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Entreprise $entreprise)
+    public function update(Request $request, $id)
     {
-        //
+        $entreprise=Entreprise::find($id);
+        $filename=Storage::disk('public')->put('',$request->file('logo'));
+        $image=basename($filename);
+        $entreprise->nom=$request->nom;
+        $entreprise->employe=$request->employe;
+        $entreprise->logo=$image;
+        $entreprise->save();
+        return redirect()->route('entreprise');  
     }
 
     /**
@@ -78,8 +94,10 @@ class EntrepriseController extends Controller
      * @param  \App\Entreprise  $entreprise
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Entreprise $entreprise)
+    public function destroy($id)
     {
-        //
+        $entreprise=Entreprise::find($id);
+        $entreprise->delete();
+        return redirect()->route('entreprise'); 
     }
 }

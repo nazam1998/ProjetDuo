@@ -35,6 +35,9 @@
                 <a class="nav-link" href="{{route('role')}}">Role</a>
                 </li>
                 
+            <li class="nav-item">
+              <a class="nav-link" href="{{route('entreprise')}}">Entreprise</a>
+              </li>
               
             
         </div>
