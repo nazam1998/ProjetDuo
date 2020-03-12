@@ -60,6 +60,42 @@
                 </div>
             </div>
         </fieldset>
+        <div>
+
+            <label for="id_role">Role</label>
+            <select name="id_role" id="id_role">
+        
+                @foreach ($roles as $item)
+                @if ($item->id==$user->id_role)
+                <option value="{{$item->id}}" selected>{{$item->role}}</option>
+                @else
+                <option value="{{$item->id}}">{{$item->role}}</option>
+
+                @endif
+            
+                    
+                @endforeach
+        
+            </select>
+        </div>
+        <div>
+            <label for="id_entreprise">Entreprise</label>
+            <select name="id_entreprise" id="id_entreprise">
+        
+                @foreach ($entreprises as $item)
+                @if ($item->id==$user->id_entreprise)
+                <option selected value="{{$item->id}}">{{$item->nom}}</option>
+
+                @else
+                <option value="{{$item->id}}">{{$item->nom}}</option>
+
+                @endif
+                    
+                @endforeach
+        
+            </select>
+        </div>
+
         <button type="submit" class="btn btn-primary">Modifier</button>
     </form>
 </div>

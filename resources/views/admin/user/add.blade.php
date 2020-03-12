@@ -30,9 +30,9 @@
             @enderror
             <input type="email" class="form-control @error('email')is-invalid @enderror" id="inputUser" name="email">
         </div>
-        
-        
-        
+
+
+
         <fieldset class="form-group">
             <div class="row">
                 <legend class="col-form-label col-sm-2 pt-0">Avatar</legend>
@@ -53,9 +53,30 @@
                 </div>
             </div>
         </fieldset>
-        
 
-        
+        <div>
+
+            <label for="id_role">Rôles</label>
+            <select name="id_role" id="id_role">
+
+                @foreach ($roles as $item)
+                <option value="{{$item->id}}">{{$item->role}}</option>
+                @endforeach
+            </select>
+        </div>
+        <div>
+            <label for="id_entreprise">entreprise</label>
+            <select name="id_entreprise" id="id_entreprise">
+
+                @foreach ($entreprises as $item)
+                <option value="{{$item->id}}">{{$item->nom}}</option>
+
+                @endforeach
+
+            </select>
+        </div>
+
+
         <button type="submit" class="btn btn-primary">Ajouter</button>
     </form>
 </div>

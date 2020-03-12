@@ -21,7 +21,7 @@ class UserController extends Controller
         $avatars=Avatar::all();
         $roles=Role::all();
         $entreprises=Entreprise::all();
-        return view('admin.user.add',compact('avatars','roles','entreprises'));
+        return view('admin.user.add',compact('avatars', "roles", "entreprises"));
     }
     public function store(Request $request){
         $request->validate([
@@ -29,14 +29,25 @@ class UserController extends Controller
             'age' => 'required|integer|min:0|max:120',
             'email' => 'required|email|unique:users',
             'id_avatar' => 'required|integer',
+            'id_role' => 'required|integer',
+            'id_entreprise' => 'required|integer',
         ]);
-        $user=new User();
-        $user->name=$request->name;
-        $user->age=$request->age;
-        $user->email=$request->email;
-        $user->id_avatar=$request->id_avatar;
-        $user->save();
-        return \redirect()->route('user');
+        $entre=Entreprise::find($request->id_entreprise);
+        $nb=User::all()->where('id_entreprise',$request->id_entreprise);
+        if(count($nb)<$entre->employe){
+
+            $user=new User();
+            $user->name=$request->name;
+            $user->age=$request->age;
+            $user->email=$request->email;
+            $user->id_avatar=$request->id_avatar;
+            $user->id_role=$request->id_role;
+            $user->id_entreprise=$request->id_entreprise;
+            $user->save();
+            return \redirect()->route('user');
+        }else{
+            return redirect()->route('addUser');
+        }
     }
     public  function edit($id){
         $user=User::find($id);
@@ -51,14 +62,20 @@ class UserController extends Controller
             'email' => 'required|email|unique:users,email,'.$id,
             'id_avatar' => 'required|integer',
         ]);
-
-        $user=User::find($id);
-        $user->name=$request->name;
-        $user->age=$request->age;
-        $user->email=$request->email;
-        $user->id_avatar=$request->id_avatar;
-        $user->save();
-        return redirect()->route('user');
+        if(count($nb)<$entre->employe){
+            $user=User::find($id);
+            $user->name=$request->name;
+            $user->age=$request->age;
+            $user->email=$request->email;
+            $user->id_avatar=$request->id_avatar;
+            $user->id_role=$request->id_role;
+            $user->id_entreprise=$request->id_entreprise;
+            $user->save();
+            return redirect()->route('user');
+        }else{
+            return redirect()->route('editUser');
+        }
+        
     }
     public function destroy($id){
         $user=User::find($id);

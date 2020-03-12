@@ -61,6 +61,13 @@ Route::get('/admin/editImage/{id}','ImageController@edit')->name('editImage');
 Route::post('/admin/updateImage/{id}','ImageController@update')->name('updateImage');
 Route::get('/admin/deleteImage/{id}','ImageController@destroy')->name('deleteImage');
 
+Route::get("/admin/role/","RoleController@index")->name("role");
+Route::get("/admin/addrole", "RoleController@create")->name("addRole");
+Route::post("/admin/saverole", "RoleController@store")->name("saveRole");
+Route::get("/admin/editrole/{id}", "RoleController@edit")->name("editRole");
+Route::post("/admin/editrole/{id}", "RoleController@update")->name("updateRole");
+Route::get("/admin/delete/role/{id}", "RoleController@destroy")->name("deleteRole");
+
 Route::get('/admin/entreprise','EntrepriseController@index')->name('entreprise');
 Route::get('/admin/addEntreprise','EntrepriseController@create')->name('addEntreprise');
 Route::post('/admin/saveEntreprise','EntrepriseController@store')->name('saveEntreprise');
