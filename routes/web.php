@@ -53,3 +53,10 @@ Route::post('/admin/saveUser','UserController@store')->name('saveUser');
 Route::get('/admin/editUser/{id}','UserController@edit')->name('editUser');
 Route::post('/admin/updateUser/{id}','UserController@update')->name('updateUser');
 Route::get('/admin/deleteUser/{id}','UserController@destroy')->name('deleteUser');
+
+Route::get('/admin/image','ImageController@index')->name('image');
+Route::get('/admin/addImage','ImageController@create')->name('addImage');
+Route::post('/admin/saveImage','ImageController@store')->name('saveImage');
+Route::get('/admin/editImage/{id}','ImageController@edit')->name('editImage');
+Route::post('/admin/updateImage/{id}','ImageController@update')->name('updateImage');
+Route::get('/admin/deleteImage/{id}','ImageController@destroy')->name('deleteImage');
