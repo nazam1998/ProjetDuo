@@ -60,3 +60,10 @@ Route::post('/admin/saveImage','ImageController@store')->name('saveImage');
 Route::get('/admin/editImage/{id}','ImageController@edit')->name('editImage');
 Route::post('/admin/updateImage/{id}','ImageController@update')->name('updateImage');
 Route::get('/admin/deleteImage/{id}','ImageController@destroy')->name('deleteImage');
+
+Route::get('/admin/entreprise','EntrepriseController@index')->name('entreprise');
+Route::get('/admin/addEntreprise','EntrepriseController@create')->name('addEntreprise');
+Route::post('/admin/saveEntreprise','EntrepriseController@store')->name('saveEntreprise');
+Route::get('/admin/editEntreprise/{id}','EntrepriseController@edit')->name('editEntreprise');
+Route::post('/admin/updateEntreprise/{id}','EntrepriseController@update')->name('updateEntreprise');
+Route::get('/admin/deleteEntreprise/{id}','EntrepriseController@destroy')->name('deleteEntreprise');
