@@ -8,7 +8,7 @@
     <table>
         <thead>
             <tr>
-                <th colspan="6">Table User</th>
+                <th colspan="7">Table User</th>
             </tr>
             <tr>
                 <th>ID</th>
@@ -27,8 +27,7 @@
                 <td>{{$item->name}}</td>
                 <td>{{$item->age}}</td>
                 <td>{{$item->email}}</td>
-                <td><img src="{{asset('storage/')}}" alt=""></td>
-                <td><img src="{{asset('storage/'.$item->image)}}" class="img-fluid" alt=""></td>
+                <td><img src="{{asset('storage/'.$avatars->where('id',$item->id_avatar)->first()->image)}}" class="img-fluid" alt=""></td>
                 <td><a href="{{route('editUser',$item->id)}}"><button class="btn btn-warning">Edit</button></a></td>
                 <td><a href="{{route('deleteUser',$item->id)}}"><button class="btn btn-danger">Delete</button></a></td>
             </tr>

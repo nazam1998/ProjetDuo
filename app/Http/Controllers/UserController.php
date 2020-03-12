@@ -18,6 +18,12 @@ class UserController extends Controller
         return view('admin.user.add',compact('avatars'));
     }
     public function store(Request $request){
+        $request->validate([
+            'nom' => 'required|alpha|max:255',
+            'age' => 'required|integer',
+            'email' => 'required|email|unique:users',
+            'id_avatar' => 'required|integer',
+        ]);
         $user=new User();
         $user->name=$request->name;
         $user->age=$request->age;
@@ -32,6 +38,12 @@ class UserController extends Controller
         return \view('admin.user.edit',\compact('user','avatars'));
     }
     public function update(Request $request,$id){
+        $request->validate([
+            'nom' => 'required|alpha|max:255',
+            'age' => 'required|integer',
+            'email' => 'required|email|unique:users',
+            'id_avatar' => 'required|integer',
+        ]);
         $user=User::find($id);
         $user->name=$request->name;
         $user->age=$request->age;
