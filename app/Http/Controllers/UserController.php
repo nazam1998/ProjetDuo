@@ -35,6 +35,8 @@ class UserController extends Controller
         $user->age=$request->age;
         $user->email=$request->email;
         $user->id_avatar=$request->id_avatar;
+        $user->id_role=$request->id_role;
+        $user->id_entreprise=$request->id_entreprise;
         $user->save();
         return \redirect()->route('user');
     }
@@ -57,6 +59,8 @@ class UserController extends Controller
         $user->age=$request->age;
         $user->email=$request->email;
         $user->id_avatar=$request->id_avatar;
+        $user->id_role=$request->id_role;
+        $user->id_entreprise=$request->id_entreprise;
         $user->save();
         return redirect()->route('user');
     }
