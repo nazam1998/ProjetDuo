@@ -20,11 +20,23 @@ class AvatarController extends Controller
     public function store(Request $request){
         $request->validate([
             'nom' => 'required|alpha|max:255',
-            'image' => 'required|image',
+            'file_image' => 'required_without:url_image|image',
+            'url_image' => 'nullable|required_without:file_image|url',
         ]);
+        if(empty($request->input('url_image'))){
+            $filename=Storage::put('public',$request->file('file_image'));
+            $image=basename($filename);
+        }else{
+            $url=$request->input('url_image');
+            $contents = file_get_contents($url);
+            $name = substr($url, strrpos($url, '/') + 1);
+            $image=Storage::disk('public')->put($name, $contents);
+            $image=$name;
+        }
+
         $avatar=new Avatar();
-        $filename=Storage::disk('public')->put('',$request->file('image'));
-        $image=basename($filename);
+        // $filename=Storage::disk('public')->put('',$request->file('file_image'));
+        // $image=basename($filename);
         $avatar->nom=$request->nom;
         $avatar->image=$image;
         $avatar->save();
@@ -37,13 +49,23 @@ class AvatarController extends Controller
     public function update(Request $request,$id){
         $request->validate([
             'nom' => 'required|alpha|max:255',
-            'image' => 'required|image',
+            'file_image' => 'required_without:url_image|image',
+            'url_image' => 'nullable|required_without:file_image|url',
         ]);
+        if(empty($request->input('url_image'))){
+            $filename=Storage::put('public',$request->file('file_image'));
+        $image=basename($filename);
+        }else{
+            $url=$request->input('url_image');
+            $contents = file_get_contents($url);
+            $name = substr($url, strrpos($url, '/') + 1);
+            $image=Storage::disk('public')->put($name, $contents);
+        }
         $avatar=Avatar::find($id);
         if(Storage::exists(public_path($avatar->image))){
             unlink($avatar->image);
         }
-        $filename=Storage::disk('public')->put('',$request->file('image'));
+        $filename=Storage::disk('public')->put('',$request->file('file_image'));
         $image=basename($filename);
         $avatar->nom=$request->nom;
         $avatar->image=$image;

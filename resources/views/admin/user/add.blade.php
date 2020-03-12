@@ -30,6 +30,9 @@
             @enderror
             <input type="email" class="form-control @error('email')is-invalid @enderror" id="inputUser" name="email">
         </div>
+        
+        
+        
         <fieldset class="form-group">
             <div class="row">
                 <legend class="col-form-label col-sm-2 pt-0">Avatar</legend>
@@ -50,6 +53,8 @@
                 </div>
             </div>
         </fieldset>
+
+        
         <button type="submit" class="btn btn-primary">Ajouter</button>
     </form>
 </div>

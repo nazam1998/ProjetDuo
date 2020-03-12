@@ -5,7 +5,7 @@
 
 @section('content')
 <div class="container mt-5">
-    <h1>Ajout nouveau User</h1>
+    <h1>Editer User</h1>
     <form action="{{route('updateUser',$user->id)}}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
@@ -13,28 +13,33 @@
             @error('name')
             <p class="text-danger">{{$message}}</p>
             @enderror
-            <input type="text" class="form-control @error('name')is-invalid @enderror" id="inputUser" name="name" value="{{$user->name}}">
+            <input type="text" class="form-control @error('name')is-invalid @enderror" id="inputUser" name="name"
+                value="{{$user->name}}">
         </div>
         <div class="form-group">
             <label for="inputUser">Age</label>
             @error('age')
             <p class="text-danger">{{$message}}</p>
             @enderror
-            <input type="number" class="form-control @error('age')is-invalid @enderror" id="inputUser" name="age" value="{{$user->age}}">
+            <input type="number" class="form-control @error('age')is-invalid @enderror" id="inputUser" name="age"
+                value="{{$user->age}}">
         </div>
         <div class="form-group">
             <label for="inputUser">Email</label>
             @error('email')
             <p class="text-danger">{{$message}}</p>
             @enderror
-            <input type="email" class="form-control @error('email')is-invalid @enderror" id="inputUser" name="email" value="{{$user->email}}">
+            <input type="email" class="form-control @error('email')is-invalid @enderror" id="inputUser" name="email"
+                value="{{$user->email}}">
         </div>
+
         <fieldset class="form-group">
             <div class="row">
                 <legend class="col-form-label col-sm-2 pt-0">Avatar</legend>
                 @error('id_avatar')
-            <p class="text-danger">{{$message}}</p>
-            @enderror
+                <p class="text-danger">{{$message}}</p>
+                @enderror
+
                 <div class="col-sm-10 row">
                     @foreach ($avatars as $item)
 
@@ -44,6 +49,7 @@
                         <input class="form-check-input" type="radio" name="id_avatar" id="gridRadios1"
                             value="{{$item->id}}" checked>
                         @else
+
                         <input class="form-check-input" type="radio" name="id_avatar" id="gridRadios1"
                             value="{{$item->id}}">
                         @endif
@@ -54,7 +60,7 @@
                 </div>
             </div>
         </fieldset>
-        <button type="submit" class="btn btn-primary">Ajouter</button>
+        <button type="submit" class="btn btn-primary">Modifier</button>
     </form>
 </div>
 @endsection

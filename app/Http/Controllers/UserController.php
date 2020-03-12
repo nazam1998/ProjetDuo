@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\User;
 use App\Avatar;
+use Illuminate\Validation\Rule;
+
 class UserController extends Controller
 {
     public function index(){
@@ -19,7 +21,7 @@ class UserController extends Controller
     }
     public function store(Request $request){
         $request->validate([
-            'nom' => 'required|alpha|max:255',
+            'name' => 'required|alpha|max:255',
             'age' => 'required|integer|min:0|max:120',
             'email' => 'required|email|unique:users',
             'id_avatar' => 'required|integer',
@@ -38,12 +40,14 @@ class UserController extends Controller
         return \view('admin.user.edit',\compact('user','avatars'));
     }
     public function update(Request $request,$id){
+        
         $request->validate([
-            'nom' => 'required|alpha|max:255',
+            'name' => 'required|alpha|max:255',
             'age' => 'required|integer|min:0|max:120',
-            'email' => 'required|email|unique:users',
+            'email' => 'required|email|unique:users,email,'.$id,
             'id_avatar' => 'required|integer',
         ]);
+
         $user=User::find($id);
         $user->name=$request->name;
         $user->age=$request->age;
