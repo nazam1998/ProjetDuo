@@ -16,16 +16,18 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($categories as $categorie)
+            @foreach ($categories as $item)
                 
             <tr>
             <td>{{$item->id}}</td>
-            <td>{{$item->nom}}</td>
-            <td>{{$item->image}}</td>
+            <td>{{$item->categorie}}</td>
             <td><a href="{{route('editCategorie',$item->id)}}"><button class="btn btn-warning">Edit</button></a></td>
             <td><a href="{{route('deleteCategorie',$item->id)}}"><button class="btn btn-danger">Delete</button></a></td>
             </tr>
             @endforeach
         </tbody>
     </table>
+            <div class="text-center">
+                <a href="{{route('addCategorie')}}" class="btn btn-primary my-5 ">Ajouter un nouveau Avatar</a>
+            </div>
 @endsection
