@@ -32,12 +32,14 @@
             <input type="email" class="form-control @error('email')is-invalid @enderror" id="inputUser" name="email"
                 value="{{$user->email}}">
         </div>
+
         <fieldset class="form-group">
             <div class="row">
                 <legend class="col-form-label col-sm-2 pt-0">Avatar</legend>
                 @error('id_avatar')
                 <p class="text-danger">{{$message}}</p>
                 @enderror
+
                 <div class="col-sm-10 row">
                     @foreach ($avatars as $item)
 
@@ -47,6 +49,7 @@
                         <input class="form-check-input" type="radio" name="id_avatar" id="gridRadios1"
                             value="{{$item->id}}" checked>
                         @else
+
                         <input class="form-check-input" type="radio" name="id_avatar" id="gridRadios1"
                             value="{{$item->id}}">
                         @endif
