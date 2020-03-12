@@ -19,6 +19,13 @@ class ImageController extends Controller
         $categories=Categorie::all();
         return view ("admin/image/add", compact("categories"));
     }
+
+    public function show($id){
+
+        $image=Image::find($id);
+        return Storage::disk('public')->download($image->image);
+    
+    }
     
     public function store(Request $request){
         // $request->validate([

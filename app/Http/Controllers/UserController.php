@@ -52,7 +52,9 @@ class UserController extends Controller
     public  function edit($id){
         $user=User::find($id);
         $avatars=Avatar::all();
-        return \view('admin.user.edit',\compact('user','avatars'));
+        $roles=Role::all();
+        $entreprises=Entreprise::all();
+        return \view('admin.user.edit',\compact('user','avatars','roles','entreprises'));
     }
     public function update(Request $request,$id){
         
@@ -62,6 +64,8 @@ class UserController extends Controller
             'email' => 'required|email|unique:users,email,'.$id,
             'id_avatar' => 'required|integer',
         ]);
+        $entre=Entreprise::find($request->id_entreprise);
+        $nb=User::all()->where('id_entreprise',$request->id_entreprise);
         if(count($nb)<$entre->employe){
             $user=User::find($id);
             $user->name=$request->name;
@@ -73,7 +77,7 @@ class UserController extends Controller
             $user->save();
             return redirect()->route('user');
         }else{
-            return redirect()->route('editUser');
+            return redirect()->route('editUser',$id);
         }
         
     }

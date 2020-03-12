@@ -26,7 +26,7 @@
         <div class="form-group">
             <label for="inputUser">Email</label>
             @error('email')
-            <p class="text-danger">{{$message}}</p>
+                <p class="text-danger">{{$message}}</p>
             @enderror
             <input type="email" class="form-control @error('email')is-invalid @enderror" id="inputUser" name="email">
         </div>
