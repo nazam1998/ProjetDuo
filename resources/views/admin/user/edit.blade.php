@@ -60,6 +60,30 @@
                 </div>
             </div>
         </fieldset>
+        <div>
+
+            <label for="id_role">categorie</label>
+            <select name="id_role" id="id_role">
+        
+                @foreach ($roles as $item)
+            <option value="{{$item->id}}">{{$item->role}}</option>
+                    
+                @endforeach
+        
+            </select>
+        </div>
+ 
+        <div>
+            <label for="id_entreprise">entreprise</label>
+            <select name="id_entreprise" id="id_entreprise">
+        
+                @foreach ($entreprises as $item)
+            <option value="{{$item->id}}">{{$item->nom}}</option>
+                    
+                @endforeach
+        
+            </select>
+        </div>
         <button type="submit" class="btn btn-primary">Modifier</button>
     </form>
 </div>
