@@ -70,7 +70,7 @@ class  CategorieController  extends  Controller
 
     //
 
-        $categorie = Categorie::find($id);
+        $categorie = new Categorie();
         $categorie->categorie=$request->input("categorie");
         $categorie->save();
         return  redirect()->route("categorie");
