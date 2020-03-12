@@ -10,19 +10,32 @@
         @csrf
         <div class="form-group">
             <label for="inputUser">Nom</label>
-            <input type="text" class="form-control" id="inputUser" name="name">
+            @error('name')
+            <p class="text-danger">{{$message}}</p>
+            @enderror
+            <input type="text" class="form-control @error('name')is-invalid @enderror" id="inputUser" name="name">
         </div>
+
         <div class="form-group">
             <label for="inputUser">Age</label>
-            <input type="number" class="form-control" id="inputUser" name="age">
+            @error('age')
+            <p class="text-danger">{{$message}}</p>
+            @enderror
+            <input type="number" class="form-control @error('age')is-invalid @enderror" id="inputUser" name="age">
         </div>
         <div class="form-group">
             <label for="inputUser">Email</label>
-            <input type="email" class="form-control" id="inputUser" name="email">
+            @error('email')
+            <p class="text-danger">{{$message}}</p>
+            @enderror
+            <input type="email" class="form-control @error('email')is-invalid @enderror" id="inputUser" name="email">
         </div>
         <fieldset class="form-group">
             <div class="row">
                 <legend class="col-form-label col-sm-2 pt-0">Avatar</legend>
+                @error('id_avatar')
+                <p class="text-danger">{{$message}}</p>
+                @enderror
                 <div class="col-sm-10 row">
                     @foreach ($avatars as $item)
 
@@ -37,7 +50,7 @@
                 </div>
             </div>
         </fieldset>
-<button type="submit" class="btn btn-primary">Ajouter</button>
-</form>
+        <button type="submit" class="btn btn-primary">Ajouter</button>
+    </form>
 </div>
 @endsection

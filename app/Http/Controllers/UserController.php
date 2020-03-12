@@ -20,7 +20,7 @@ class UserController extends Controller
     public function store(Request $request){
         $request->validate([
             'nom' => 'required|alpha|max:255',
-            'age' => 'required|integer',
+            'age' => 'required|integer|min:0|max:120',
             'email' => 'required|email|unique:users',
             'id_avatar' => 'required|integer',
         ]);
@@ -40,7 +40,7 @@ class UserController extends Controller
     public function update(Request $request,$id){
         $request->validate([
             'nom' => 'required|alpha|max:255',
-            'age' => 'required|integer',
+            'age' => 'required|integer|min:0|max:120',
             'email' => 'required|email|unique:users',
             'id_avatar' => 'required|integer',
         ]);

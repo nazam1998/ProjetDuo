@@ -10,11 +10,18 @@
     @csrf
     <div class="form-group">
       <label for="inputAvatar">Nom</label>
-      <input type="text" class="form-control" id="inputAvatar" name="nom">
+      @error('nom')
+            <p class="text-danger">{{$message}}</p>
+            @enderror
+      <input type="text" class="form-control  @error('nom')is-invalid @enderror" id="inputAvatar" name="nom">
     </div>
+    
     <div class="form-group">
       <label for="inputAvatar">Image</label>
-      <input type="file" class="form-control-file" id="inputAvatar" name="image">
+      @error('image')
+            <p class="text-danger">{{$message}}</p>
+            @enderror
+      <input type="file" class="form-control-file  @error('image')is-invalid @enderror" id="inputAvatar" name="image">
     </div>
     
     <button type="submit" class="btn btn-primary">Ajouter</button>
