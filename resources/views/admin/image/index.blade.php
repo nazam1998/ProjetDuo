@@ -33,7 +33,7 @@
         </tbody>
     </table>
 
-   <a href="{{route('addImage')}}" class="btn btn-primary my-5">Ajouter un nouveau Avatar</a>
+   <a href="{{route('addImage')}}" class="btn btn-primary my-5">Ajouter un nouveau Un BG</a>
 </div>
 
     @endsection

@@ -28,6 +28,10 @@
             <li class="nav-item">
             <a class="nav-link" href="{{route('user')}}">User</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{route('image')}}">Image</a>
+              </li>
+              
             
         </div>
       </nav>

@@ -37,10 +37,10 @@ class ImageController extends Controller
 
         public function edit($id){
             $image=Image::find($id);
-            $images=Image::all();
-            return \view("admin.image.edit", \compact("image"));
+            $categories=Categorie::all();
+            return \view("admin.image.edit", \compact("image", "categories"));
         }
-        public function upadate(Request $request, $id){
+        public function update(Request $request, $id){
             $request->validate([
                 'nom' => 'required|max:255',
                 'id_categorie' => 'required|integer',
@@ -57,8 +57,8 @@ class ImageController extends Controller
             return \redirect()->route("image");
 }
         public function destroy($id){
-            $album=Album::find($id);
-            $album->delete();
+            $image=Image::find($id);
+            $image->delete();
             return redirect()->route("image");
       }
 }
