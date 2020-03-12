@@ -31,6 +31,10 @@
             <li class="nav-item">
               <a class="nav-link" href="{{route('image')}}">Image</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{route('role')}}">Role</a>
+                </li>
+                
               
             
         </div>
