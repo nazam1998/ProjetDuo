@@ -28,10 +28,11 @@ class ImageController extends Controller
     }
     
     public function store(Request $request){
-        // $request->validate([
-        //     'nom' => 'required|alpha|max:255',
-        //     'image' => 'required|image',
-        // ]);
+        $request->validate([
+            'nom' => 'required|alpha|max:255',
+            'id_categorie' => 'required|integer',
+            'image' => 'required|image',
+        ]);
         $image = new Image();
         $filename=Storage::put('public',$request->file('image'));
         $imageName=basename($filename);

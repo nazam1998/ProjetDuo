@@ -31,6 +31,8 @@ class UserController extends Controller
             'id_avatar' => 'required|integer',
             'id_role' => 'required|integer',
             'id_entreprise' => 'required|integer',
+            'file_image'=>'required_without:url_image|image',
+            'url_image'=>'required_without:file_image|image|nullable'
         ]);
         $entre=Entreprise::find($request->id_entreprise);
         $nb=User::all()->where('id_entreprise',$request->id_entreprise);
@@ -63,6 +65,10 @@ class UserController extends Controller
             'age' => 'required|integer|min:0|max:120',
             'email' => 'required|email|unique:users,email,'.$id,
             'id_avatar' => 'required|integer',
+            'id_entreprise' => 'required|integer',
+            'id_role' => 'required|integer',
+            'file_image'=>'required_without:url_image|image',
+            'url_image'=>'required_without:file_image|image|nullable'
         ]);
         $entre=Entreprise::find($request->id_entreprise);
         $nb=User::all()->where('id_entreprise',$request->id_entreprise);

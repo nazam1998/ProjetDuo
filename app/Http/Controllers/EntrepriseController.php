@@ -36,6 +36,11 @@ class EntrepriseController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nom'=>'required|unique:entreprises',
+            'employe'=>'required|integer',
+            'logo'=>'required|image'
+        ]);
         $entreprise=new Entreprise();
         $filename=Storage::disk('public')->put('',$request->file('logo'));
         $image=basename($filename);
@@ -78,6 +83,11 @@ class EntrepriseController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'nom'=>'required|unique:entreprises,nom,'.$id,
+            'employe'=>'required|integer',
+            'logo'=>'required|image'
+        ]);
         $entreprise=Entreprise::find($id);
         $filename=Storage::disk('public')->put('',$request->file('logo'));
         $image=basename($filename);
