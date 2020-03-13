@@ -1,4 +1,8 @@
 require('./bootstrap');
+require('bootstrap');
+require('jquery');
+require('popper.js');
+
 
 let buttonFile=document.querySelector('#buttonAvatarFile');
 let buttonUrl=document.querySelector('#buttonAvatarUrl');
