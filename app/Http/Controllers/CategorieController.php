@@ -68,7 +68,7 @@ class  CategorieController  extends  Controller
 
     {
         $request->validate([
-            'nom'=>'required|unique:categories'
+            'categorie'=>'required|unique:categories'
         ]);
 
         $categorie = new Categorie();
@@ -142,7 +142,7 @@ class  CategorieController  extends  Controller
 
     //
     $request->validate([
-        'nom'=>'required|unique:categories,categorie,'.$id
+        'categorie'=>'required|unique:categories,categorie,'.$id
     ]);
         $categorie = Categorie::find($id);
         $categorie->categorie=$request->input("categorie");

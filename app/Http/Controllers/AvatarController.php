@@ -19,7 +19,7 @@ class AvatarController extends Controller
     }
     public function store(Request $request){
         $request->validate([
-            'nom' => 'required|alpha|max:255',
+            'nom' => 'required|max:255',
             'file_image' => 'required_without:url_image|image',
             'url_image' => 'nullable|required_without:file_image|url',
         ]);
@@ -45,7 +45,7 @@ class AvatarController extends Controller
     }
     public function update(Request $request,$id){
         $request->validate([
-            'nom' => 'required|alpha|max:255',
+            'nom' => 'required|max:255',
             'file_image' => 'required_without:url_image|image',
             'url_image' => 'nullable|required_without:file_image|url',
         ]);

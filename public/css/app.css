@@ -14089,6 +14089,22 @@ nav {
 
 nav a {
   color: white;
+  transition: 1s;
+}
+
+nav a:hover {
+  color: #f9b4d0;
+}
+
+.btn-primary {
+  background-color: rgba(0, 0, 0, 0);
+  border: #f9b4d0 1px solid;
+  transition: 0.5s;
+}
+
+.btn-primary:hover {
+  background-color: #f9b4d0;
+  color: white;
 }
 
 .backgroundWelcome {

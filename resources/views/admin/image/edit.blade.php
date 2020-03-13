@@ -5,7 +5,7 @@
 
 @section('content')
 <div class="container mt-5">
-    <h1>Ajout nouveau Image</h1>
+    <h1>Modifier Image</h1>
     <form action="{{route('updateImage',$image->id)}}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
@@ -39,7 +39,7 @@
                 @endforeach
         
             </select>
-        <button type="submit" class="btn btn-primary">Ajouter</button>
+        <button type="submit" class="btn btn-primary">Modifier</button>
     </form>
 </div>
 @endsection
