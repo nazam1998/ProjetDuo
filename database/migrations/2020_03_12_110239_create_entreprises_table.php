@@ -14,11 +14,13 @@ class CreateEntreprisesTable extends Migration
     public function up()
     {
         Schema::create('entreprises', function (Blueprint $table) {
+            
             $table->id();
             $table->string('nom');
-            $table->tinyInteger('employe');
+            $table->Integer('employe');
             $table->string('logo');
             $table->timestamps();
+        
         });
     }
 

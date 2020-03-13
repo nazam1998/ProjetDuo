@@ -38,7 +38,7 @@ class EntrepriseController extends Controller
     {
         $request->validate([
             'nom'=>'required|unique:entreprises',
-            'employe'=>'required|integer',
+            'employe'=>'required|integer|min:1|max:100',
             'logo'=>'required|image'
         ]);
         $entreprise=new Entreprise();
@@ -85,7 +85,7 @@ class EntrepriseController extends Controller
     {
         $request->validate([
             'nom'=>'required|unique:entreprises,nom,'.$id,
-            'employe'=>'required|integer',
+            'employe'=>'required|integer|min:1|max:100',
             'logo'=>'required|image'
         ]);
         $entreprise=Entreprise::find($id);
