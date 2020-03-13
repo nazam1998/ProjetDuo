@@ -1,10 +1,13 @@
 @extends('layout.main')
 @section('title','Accueil')
 @section('content')
+<div class="backgroundWelcome">
 
-<div class="container text-center">
-        <h1>Welcome</h1>
-    <a href="http://www.developpeurfullstack.com/"><img src="{{asset('/img/Chuckle-Circle-1.png')}}" alt="" class="my-5"></a>
-    </div>
+    <div class="container-lg text-center">
+        <a href="http://www.developpeurfullstack.com/"><img src="{{asset('/img/NazamRayane.png')}}" alt="" class=" img-fluid"></a>
+        </div>
+        <h1 class="title text-center ">Less is more</h1>
+</div>
+
 
 @endsection
