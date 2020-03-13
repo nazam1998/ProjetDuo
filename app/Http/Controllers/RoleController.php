@@ -39,7 +39,9 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'role'=>'required|unique:roles'
+        ]);
         $role = new Role();
         $role->role=$request->input("role");
         $role->save();
@@ -81,7 +83,9 @@ class RoleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'role'=>'required|unique:roles,role,'.$id
+        ]);
         $role = Role::find($id);
         $role->role=$request->input("role");
         $role->save();

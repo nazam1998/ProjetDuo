@@ -13,7 +13,7 @@
       @error('nom')
             <p class="text-danger">{{$message}}</p>
             @enderror
-      <input type="text" class="form-control  @error('nom')is-invalid @enderror" id="inputAvatar" name="nom">
+    <input type="text" class="form-control  @error('nom')is-invalid @enderror" id="inputAvatar" name="nom" value="{{old('nom')}}">
     </div>
     
     <div class="form-group">
@@ -29,7 +29,7 @@
               </div>
               <div class="col">
                 <button type="button" class="btn btn-info my-2" id="buttonAvatarUrl">Via URL</button>
-                <input type="url" class="form-control d-none @error('image')is-invalid @enderror" id="inputAvatarUrl" name="url_image">
+                <input type="url" class="form-control d-none @error('image')is-invalid @enderror" id="inputAvatarUrl" name="url_image" value="{{old('url_image')}}">
               </div>
             </div>
     </div>

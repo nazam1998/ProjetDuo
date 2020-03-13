@@ -58,6 +58,7 @@ Route::get('/admin/image','ImageController@index')->name('image');
 Route::get('/admin/addImage','ImageController@create')->name('addImage');
 Route::post('/admin/saveImage','ImageController@store')->name('saveImage');
 Route::get('/admin/editImage/{id}','ImageController@edit')->name('editImage');
+Route::get('/admin/downloadImage/{id}','ImageController@show')->name('downloadImage');
 Route::post('/admin/updateImage/{id}','ImageController@update')->name('updateImage');
 Route::get('/admin/deleteImage/{id}','ImageController@destroy')->name('deleteImage');
 

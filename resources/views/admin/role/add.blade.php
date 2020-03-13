@@ -10,10 +10,10 @@
         @csrf
         <div class="form-group">
             <label for="inputRole">Role</label>
-            @error('nom')
+            @error('role')
             <p class="text-danger">{{$message}}</p>
             @enderror
-            <input type="text" class="form-control-file  @error('categorie')is-invalid @enderror" id="inputRole"
+            <input type="text" class="form-control-file  @error('role')is-invalid @enderror" id="inputRole"
             name="role">
 
         </div>

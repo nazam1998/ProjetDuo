@@ -10,7 +10,7 @@
         @csrf
         <div class="form-group">
             <label for="inputCategorie">Categorie</label>
-            @error('nom')
+            @error('categorie')
             <p class="text-danger">{{$message}}</p>
             @enderror
             <input type="text" class="form-control-file  @error('categorie')is-invalid @enderror" id="inputCategorie"

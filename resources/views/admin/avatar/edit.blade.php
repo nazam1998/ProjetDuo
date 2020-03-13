@@ -18,12 +18,24 @@
         </div>
         <div class="form-group">
             <label for="inputAvatar">Image</label>
-            @error('image')
-            <p class="text-danger">{{$message}}</p>
+            @error('url_image')
+                  <p class="text-danger">{{$message}}</p>
             @enderror
-            <input type="file" class="form-control-file @error('image')is-invalid @enderror" id="inputAvatar"
-                name="image">
-        </div>
+            @error('file_image')
+                  <p class="text-danger">{{$message}}</p>
+            @enderror
+                  <div class="row">
+                    <div class="col">
+                      <button type="button" class="btn btn-info my-2" id="buttonAvatarFile">Via Upload</button>
+                      <input type="file" class="form-control-file  @error('file_image')is-invalid @enderror" id="inputAvatarFile" name="file_image">
+      
+                    </div>
+                    <div class="col">
+                      <button type="button" class="btn btn-info my-2" id="buttonAvatarUrl">Via URL</button>
+                      <input type="url" class="form-control d-none @error('url_image')is-invalid @enderror" id="inputAvatarUrl" name="url_image" value="{{old('url_image',$avatar->image)}}">
+                    </div>
+                  </div>
+          </div>
         <button type="submit" class="btn btn-primary">Modifier</button>
     </form>
 </div>
